@@ -1,0 +1,86 @@
+[
+  {
+    "name": "search",
+    "description": "Forward geocode — place name → coordinates. Strong on partial / autocomplete-style queries.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Free-text place name / address"
+        },
+        "lat": {
+          "type": "number",
+          "description": "Latitude bias center"
+        },
+        "lon": {
+          "type": "number",
+          "description": "Longitude bias center"
+        },
+        "location_bias_scale": {
+          "type": "number",
+          "description": "Strength of lat/lon bias (default 0.2)"
+        },
+        "zoom": {
+          "type": "number",
+          "description": "Zoom level for bias (0-18)"
+        },
+        "limit": {
+          "type": "number",
+          "description": "1-50 (default 5)"
+        },
+        "lang": {
+          "type": "string",
+          "description": "Language for the response (en, de, fr, ...)"
+        },
+        "osm_tag": {
+          "type": "string",
+          "description": "OSM tag filter (e.g. \"amenity:pharmacy\")"
+        },
+        "layer": {
+          "type": "string",
+          "description": "house | street | locality | city | district | county | state | country"
+        },
+        "bbox": {
+          "type": "string",
+          "description": "Bounding box: \"min_lon,min_lat,max_lon,max_lat\""
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  {
+    "name": "reverse",
+    "description": "Reverse geocode — coordinates → nearest place name.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lon": {
+          "type": "number"
+        },
+        "radius": {
+          "type": "number",
+          "description": "Search radius in km (default 1)"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "layer": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lat",
+        "lon"
+      ]
+    }
+  }
+]
